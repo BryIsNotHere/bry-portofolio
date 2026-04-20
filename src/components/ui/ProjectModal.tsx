@@ -126,6 +126,7 @@ export default function ProjectModal({
                 onClick={() => setZoomed(zoomed === i ? null : i)}
                 style={{
                   aspectRatio: zoomed === i ? undefined : "16/9",
+                  minHeight: 200,
                   background: "#1a1a2e",
                   display: "flex",
                   alignItems: "center",
@@ -164,7 +165,9 @@ export default function ProjectModal({
                     style={{
                       width: "100%",
                       height: "100%",
-                      objectFit: "cover",
+                      objectFit: "contain",
+                      display: "block",
+                      background: "#0a0a0a",
                     }}
                   />
                 ) : (
@@ -205,7 +208,27 @@ export default function ProjectModal({
                   lineHeight: 1.8,
                 }}
               >
-                {para}
+                {para.text}{" "}
+                {para.link && (
+                  <a
+                    href={para.link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "#00f0ff",
+                      textDecoration: "none",
+                      borderBottom: "1px solid #00f0ff",
+                    }}
+                    onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      (e.currentTarget.style.color = "#ffe600")
+                    }
+                    onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) =>
+                      (e.currentTarget.style.color = "#00f0ff")
+                    }
+                  >
+                    {para.link.label}
+                  </a>
+                )}
               </p>
             ))}
           </div>

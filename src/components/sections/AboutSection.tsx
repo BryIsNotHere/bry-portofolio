@@ -1,7 +1,13 @@
 "use client"
 
 import { useState, useEffect, useRef } from "react"
-import { PLAYER, DIALOGS, TECH_STACK, SPECIAL_MOVES } from "@/lib/config"
+import {
+  PLAYER,
+  DIALOGS,
+  TECH_STACK,
+  SPECIAL_MOVES,
+  LANGUAGES,
+} from "@/lib/config"
 
 export default function AboutSection() {
   const [displayText, setDisplayText] = useState("")
@@ -127,21 +133,17 @@ export default function AboutSection() {
               overflow: "hidden",
             }}
           >
-            <div
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/me.jpeg"
+              alt="Bryan Nicholas"
               style={{
-                fontFamily: "'Press Start 2P',monospace",
-                fontSize: 8,
-                color: "#444",
-                textAlign: "center",
-                lineHeight: 2,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                display: "block",
               }}
-            >
-              [ YOUR PHOTO
-              <br />
-              GOES HERE ]<br />
-              <br />
-              480 × 640
-            </div>
+            />
             <div
               style={{
                 position: "absolute",
@@ -310,6 +312,93 @@ export default function AboutSection() {
                 {t.label}
               </span>
             ))}
+          </div>
+
+          {/* Languages */}
+          <div
+            className="neon-yellow"
+            style={{
+              fontFamily: "'Press Start 2P',monospace",
+              fontSize: 8,
+              letterSpacing: 2,
+              marginTop: 28,
+              marginBottom: 14,
+            }}
+          >
+            ▶ LANGUAGES
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+            {LANGUAGES.map((lang) => (
+              <div key={lang.label}>
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    fontFamily: "'Press Start 2P',monospace",
+                    fontSize: 6,
+                    color: "#888",
+                    marginBottom: 4,
+                  }}
+                >
+                  <span style={{ color: "#fff" }}>{lang.label}</span>
+                  <span style={{ color: "#ffe600" }}>{lang.level}</span>
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    height: 8,
+                    background: "#111",
+                    border: "1px solid #333",
+                    borderRadius: 1,
+                    overflow: "hidden",
+                  }}
+                >
+                  <div
+                    style={{
+                      height: "100%",
+                      width: `${lang.value}%`,
+                      background: "linear-gradient(90deg,#ff006e,#ff006e)",
+                      boxShadow: "0 0 6px #ff006e",
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* CV Download */}
+          <div style={{ marginTop: 32 }}>
+            <a
+              href="/cv/bryan-nicholas-cv.pdf"
+              download="Bryan_Nicholas_CV.pdf"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                fontFamily: "'Press Start 2P',monospace",
+                fontSize: 8,
+                padding: "12px 20px",
+                border: "1px solid #39ff14",
+                color: "#39ff14",
+                textDecoration: "none",
+                letterSpacing: 2,
+                borderRadius: 2,
+                transition: "all 0.15s",
+                cursor: "crosshair",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#39ff14"
+                e.currentTarget.style.color = "#080810"
+                e.currentTarget.style.boxShadow = "0 0 20px #39ff14"
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent"
+                e.currentTarget.style.color = "#39ff14"
+                e.currentTarget.style.boxShadow = "none"
+              }}
+            >
+              ▼ DOWNLOAD CV
+            </a>
           </div>
         </div>
       </div>

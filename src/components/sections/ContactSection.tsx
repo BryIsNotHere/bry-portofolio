@@ -175,7 +175,7 @@ export default function ContactSection() {
             letterSpacing: 2,
           }}
         >
-          © PLAYER ONE INDUSTRIES — ALL RIGHTS RESERVED
+          © LIU INDUSTRIES — ALL RIGHTS RESERVED
         </p>
       </div>
     </section>
