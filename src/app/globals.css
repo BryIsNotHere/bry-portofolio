@@ -1,155 +1,271 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --black:       #080810;
-  --navy:        #0a0a1a;
-  --panel:       #0d0d20;
-  --mid-gray:    #1a1a2e;
-  --neon-blue:   #00f0ff;
-  --neon-pink:   #ff006e;
+  --black: #080810;
+  --navy: #0a0a1a;
+  --panel: #0d0d20;
+  --mid-gray: #1a1a2e;
+  --neon-blue: #00f0ff;
+  --neon-pink: #ff006e;
   --neon-yellow: #ffe600;
-  --neon-green:  #39ff14;
+  --neon-green: #39ff14;
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*,
+*::before,
+*::after {
+  cursor: crosshair !important;
+}
+html {
+  scroll-behavior: smooth;
+}
 body {
   background: var(--black);
   color: #fff;
-  font-family: 'Share Tech Mono', monospace;
+  font-family: "Share Tech Mono", monospace;
   overflow-x: hidden;
   cursor: crosshair;
 }
 
-::-webkit-scrollbar       { width: 4px; }
-::-webkit-scrollbar-track { background: var(--black); }
-::-webkit-scrollbar-thumb { background: var(--neon-blue); border-radius: 2px; }
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--neon-blue);
+  border-radius: 2px;
+}
 
 /* ── Overlays ────────────────────────────────────── */
 .scanlines {
-  position: fixed; inset: 0;
+  position: fixed;
+  inset: 0;
   background: repeating-linear-gradient(
     0deg,
-    transparent, transparent 2px,
-    rgba(0,0,0,0.08) 2px, rgba(0,0,0,0.08) 4px
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
   );
-  pointer-events: none; z-index: 9999;
+  pointer-events: none;
+  z-index: 9999;
 }
 .crt-flicker {
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 9998;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
   animation: flicker 8s infinite;
 }
 @keyframes flicker {
-  0%,95%,100% { opacity:0; }
-  96%         { opacity:0.03; }
-  97%         { opacity:0; }
-  98%         { opacity:0.05; }
-  99%         { opacity:0; }
+  0%,
+  95%,
+  100% {
+    opacity: 0;
+  }
+  96% {
+    opacity: 0.03;
+  }
+  97% {
+    opacity: 0;
+  }
+  98% {
+    opacity: 0.05;
+  }
+  99% {
+    opacity: 0;
+  }
 }
 
 /* ── Landing ─────────────────────────────────────── */
 .grid-scroll {
-  background-image:
-    linear-gradient(rgba(0,240,255,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0,240,255,0.04) 1px, transparent 1px);
+  background-image: linear-gradient(
+      rgba(0, 240, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.04) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: gridScroll 20s linear infinite;
 }
 @keyframes gridScroll {
-  0%   { background-position: 0 0; }
-  100% { background-position: 0 40px; }
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 40px;
+  }
 }
-
-/* ── Pacman ──────────────────────────────────────── */
-@keyframes chomp {
-  0%  { clip-path: polygon(50% 50%,100% 20%,100% 0%,0% 0%,0% 100%,100% 100%,100% 80%); }
-  50% { clip-path: polygon(50% 50%,100% 35%,100% 0%,0% 0%,0% 100%,100% 100%,100% 65%); }
-}
-.chomp { animation: chomp 0.2s steps(1) infinite; }
-
-@keyframes pacmanMove {
-  0%   { left: -20px; }
-  100% { left: calc(100% + 20px); }
-}
-.pacman-move { animation: pacmanMove 6s linear infinite; }
-
-/* ── Galaga ──────────────────────────────────────── */
-@keyframes galaFire {
-  0%   { transform: translateX(-50%) translateY(0);    opacity:1; }
-  100% { transform: translateX(-50%) translateY(-50px);opacity:0; }
-}
-.galaga-firing { animation: galaFire 0.4s ease-out forwards; }
 
 /* ── Matrix ──────────────────────────────────────── */
 @keyframes matrixFall {
-  0%   { transform: translateY(-100%); }
-  100% { transform: translateY(100vh); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
 /* ── Debris ──────────────────────────────────────── */
 @keyframes floatDebris {
-  0%   { transform: translateY(100vh) rotate(0deg);   opacity:0.6; }
-  100% { transform: translateY(-20px) rotate(720deg); opacity:0; }
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-20px) rotate(720deg);
+    opacity: 0;
+  }
 }
 
 /* ── Page entrance ───────────────────────────────── */
 @keyframes pageIn {
-  from { opacity:0; transform:translateY(8px); }
-  to   { opacity:1; transform:translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.page-in { animation: pageIn 0.3s ease-out; }
+.page-in {
+  animation: pageIn 0.3s ease-out;
+}
 
 /* ── VS flash ────────────────────────────────────── */
 @keyframes vsFlash {
-  0%   { opacity:0.8; }
-  100% { opacity:0; }
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
 }
-.vs-flash { animation: vsFlash 0.1s 0.4s ease-out both; }
+.vs-flash {
+  animation: vsFlash 0.1s 0.4s ease-out both;
+}
 
 /* ── Staggered name reveals ──────────────────────── */
 @keyframes nameIn {
-  from { opacity:0; transform:translateY(30px); }
-  to   { opacity:1; transform:translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.challenger-in { animation: challengerIn 0.5s 0.3s both; }
+.challenger-in {
+  animation: challengerIn 0.5s 0.3s both;
+}
 @keyframes challengerIn {
-  from { opacity:0; transform:scaleX(3); }
-  to   { opacity:1; transform:scaleX(1); }
+  from {
+    opacity: 0;
+    transform: scaleX(3);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
 }
-.name-in-1 { animation: nameIn 0.6s 0.6s both; }
-.name-in-2 { animation: nameIn 0.6s 0.8s both; }
-.name-in-3 { animation: nameIn 0.6s 1.0s both; }
-.name-in-4 { animation: nameIn 0.4s 1.2s both; }
-.name-in-5 { animation: nameIn 0.4s 1.4s both; }
+.name-in-1 {
+  animation: nameIn 0.6s 0.6s both;
+}
+.name-in-2 {
+  animation: nameIn 0.6s 0.8s both;
+}
+.name-in-3 {
+  animation: nameIn 0.6s 1s both;
+}
+.name-in-4 {
+  animation: nameIn 0.4s 1.2s both;
+}
+.name-in-5 {
+  animation: nameIn 0.4s 1.4s both;
+}
 
 /* ── Modal ───────────────────────────────────────── */
 @keyframes modalIn {
-  from { opacity:0; transform:scale(0.9) translateY(20px); }
-  to   { opacity:1; transform:scale(1)   translateY(0); }
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
-.modal-in { animation: modalIn 0.25s ease-out; }
+.modal-in {
+  animation: modalIn 0.25s ease-out;
+}
 
 /* ── Misc ────────────────────────────────────────── */
-@keyframes blink        { 50% { opacity:0; } }
-.blink                  { animation: blink 1s step-end infinite; }
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+.blink {
+  animation: blink 1s step-end infinite;
+}
 
-@keyframes bounceArrow  { from{transform:translateY(0)} to{transform:translateY(3px)} }
-.bounce-arrow           { animation: bounceArrow 0.6s ease-in-out infinite alternate; }
+@keyframes bounceArrow {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(3px);
+  }
+}
+.bounce-arrow {
+  animation: bounceArrow 0.6s ease-in-out infinite alternate;
+}
 
 @keyframes ghostfacePeek {
-  0%,60%,100% { transform:translateY(0); }
-  70%,85%     { transform:translateY(-80px); }
-  90%         { transform:translateY(0); }
+  0%,
+  60%,
+  100% {
+    transform: translateY(0);
+  }
+  70%,
+  85% {
+    transform: translateY(-80px);
+  }
+  90% {
+    transform: translateY(0);
+  }
 }
-.ghostface-peek { animation: ghostfacePeek 8s ease-in-out infinite; }
+.ghostface-peek {
+  animation: ghostfacePeek 8s ease-in-out infinite;
+}
 
-@keyframes countPulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
-.count-pulse { animation: countPulse 1s step-end infinite; }
+@keyframes countPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+.count-pulse {
+  animation: countPulse 1s step-end infinite;
+}
 
 /* ── Pokemon dialog ──────────────────────────────── */
 .pokemon-box {
@@ -159,26 +275,29 @@ body {
   color: #222;
   padding: 20px 24px 32px;
   position: relative;
-  box-shadow:
-    inset  2px  2px 0 rgba(255,255,255,0.8),
-    inset -2px -2px 0 rgba(0,0,0,0.2),
-    4px 4px 0 #888;
+  box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.8),
+    inset -2px -2px 0 rgba(0, 0, 0, 0.2), 4px 4px 0 #888;
   cursor: pointer;
   transition: background 0.15s;
   min-height: 100px;
 }
 .pokemon-box::before {
-  content: '';
-  position: absolute; top: -1px; left: 20px;
-  width: 80px; height: 6px;
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 20px;
+  width: 80px;
+  height: 6px;
   background: #5b5;
   border-radius: 0 0 4px 4px;
 }
-.pokemon-box:hover { background: #e8e8d8; }
+.pokemon-box:hover {
+  background: #e8e8d8;
+}
 
 /* ── Tech badges ─────────────────────────────────── */
 .tech-badge {
-  font-family: 'Press Start 2P', monospace;
+  font-family: "Press Start 2P", monospace;
   font-size: 7px;
   padding: 6px 10px;
   border: 1px solid;
@@ -191,31 +310,86 @@ body {
   display: inline-block;
 }
 .tech-badge::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: currentColor; opacity: 0.08;
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  opacity: 0.08;
 }
-.tech-badge:hover { transform: translateY(-2px); filter: brightness(1.3); }
-.tech-badge.blue   { color: var(--neon-blue);   border-color: var(--neon-blue);   }
-.tech-badge.pink   { color: var(--neon-pink);   border-color: var(--neon-pink);   }
-.tech-badge.yellow { color: var(--neon-yellow); border-color: var(--neon-yellow); }
-.tech-badge.green  { color: var(--neon-green);  border-color: var(--neon-green);  }
+.tech-badge:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.3);
+}
+.tech-badge.blue {
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+}
+.tech-badge.pink {
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+}
+.tech-badge.yellow {
+  color: var(--neon-yellow);
+  border-color: var(--neon-yellow);
+}
+.tech-badge.green {
+  color: var(--neon-green);
+  border-color: var(--neon-green);
+}
 
 /* ── Neon text helpers ───────────────────────────── */
-.neon-blue   { color: var(--neon-blue);   text-shadow: 0 0 10px var(--neon-blue),   0 0 20px var(--neon-blue);   }
-.neon-pink   { color: var(--neon-pink);   text-shadow: 0 0 10px var(--neon-pink),   0 0 20px var(--neon-pink);   }
-.neon-yellow { color: var(--neon-yellow); text-shadow: 0 0 10px var(--neon-yellow), 0 0 20px var(--neon-yellow); }
-.neon-green  { color: var(--neon-green);  text-shadow: 0 0 10px var(--neon-green),  0 0 20px var(--neon-green);  }
+.neon-blue {
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+.neon-pink {
+  color: var(--neon-pink);
+  text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
+.neon-yellow {
+  color: var(--neon-yellow);
+  text-shadow: 0 0 10px var(--neon-yellow), 0 0 20px var(--neon-yellow);
+}
+.neon-green {
+  color: var(--neon-green);
+  text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green);
+}
 
 /* ── Character card corners ──────────────────────── */
-.char-corner { position:absolute; width:12px; height:12px; border-color:var(--neon-blue); border-style:solid; }
-.char-corner.tl { top:8px;    left:8px;  border-width:2px 0 0 2px; }
-.char-corner.tr { top:8px;    right:8px; border-width:2px 2px 0 0; }
-.char-corner.bl { bottom:8px; left:8px;  border-width:0 0 2px 2px; }
-.char-corner.br { bottom:8px; right:8px; border-width:0 2px 2px 0; }
+.char-corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-color: var(--neon-blue);
+  border-style: solid;
+}
+.char-corner.tl {
+  top: 8px;
+  left: 8px;
+  border-width: 2px 0 0 2px;
+}
+.char-corner.tr {
+  top: 8px;
+  right: 8px;
+  border-width: 2px 2px 0 0;
+}
+.char-corner.bl {
+  bottom: 8px;
+  left: 8px;
+  border-width: 0 0 2px 2px;
+}
+.char-corner.br {
+  bottom: 8px;
+  right: 8px;
+  border-width: 0 2px 2px 0;
+}
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 700px) {
-  .about-grid { grid-template-columns: 1fr !important; }
-  .health-bar  { width: 120px !important; }
+  .about-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .health-bar {
+    width: 120px !important;
+  }
 }

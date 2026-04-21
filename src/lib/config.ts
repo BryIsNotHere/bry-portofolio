@@ -5,8 +5,8 @@
 // ============================================================
 
 export const PLAYER = {
-  name: "Bryan Nicholas",
-  title: "WEB DEVELOPER",
+  name: "BRYAN NICHOLAS",
+  title: "FRONTEND WEB DEVELOPER",
   origin: "JAKARTA, ID",
   class: "DEVELOPER",
   level: "22",
@@ -297,58 +297,6 @@ export const PROJECTS: Project[] = [
         caption: "Toba education page",
       },
     ],
-  },
-]
-
-export const LEADERBOARD = [
-  {
-    rank: "1ST",
-    initials: "BRY",
-    achievement: "Shipped Spendora — Full Stack App",
-    sub: "Production — 2026",
-    score: "999,999",
-  },
-  {
-    rank: "2ND",
-    initials: "BRY",
-    achievement: "Computer Science Bachelor",
-    sub: "Bina Nusantara University — 2025",
-    score: "850,000",
-  },
-  {
-    rank: "3RD",
-    initials: "BRY",
-    achievement: "Mastered Laravel + Inertia Stack",
-    sub: "Full Stack — 2024",
-    score: "720,000",
-  },
-  {
-    rank: "4TH",
-    initials: "BRY",
-    achievement: "First Firebase Deployment",
-    sub: "Cloud — 2024",
-    score: "580,000",
-  },
-  {
-    rank: "5TH",
-    initials: "BRY",
-    achievement: "First React Project Shipped",
-    sub: "Frontend — 2023",
-    score: "440,000",
-  },
-  {
-    rank: "6TH",
-    initials: "BRY",
-    achievement: "Learned Git + Figma Workflow",
-    sub: "Tooling — 2023",
-    score: "280,000",
-  },
-  {
-    rank: "7TH",
-    initials: "BRY",
-    achievement: "Wrote First Line of Code",
-    sub: "Origin Story — 2021",
-    score: "100,000",
   },
 ]
 

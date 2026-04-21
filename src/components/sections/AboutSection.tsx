@@ -283,7 +283,7 @@ export default function AboutSection() {
               marginBottom: 14,
             }}
           >
-            ▶ TECH STACK
+            TECH STACK
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {TECH_STACK.map((t) => (
@@ -304,7 +304,7 @@ export default function AboutSection() {
               marginBottom: 14,
             }}
           >
-            ▶ SPECIAL MOVES
+            SPECIAL MOVES
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {SPECIAL_MOVES.map((t) => (
@@ -325,7 +325,7 @@ export default function AboutSection() {
               marginBottom: 14,
             }}
           >
-            ▶ LANGUAGES
+            LANGUAGES
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
             {LANGUAGES.map((lang) => (
@@ -397,7 +397,7 @@ export default function AboutSection() {
                 e.currentTarget.style.boxShadow = "none"
               }}
             >
-              ▼ DOWNLOAD CV
+              DOWNLOAD CV
             </a>
           </div>
         </div>
