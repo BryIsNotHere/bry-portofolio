@@ -4,6 +4,9 @@ import "./globals.css"
 export const metadata: Metadata = {
   title: "Bryan Nicholas - Frontend Web Developer",
   description: "Full Stack Developer Portfolio",
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 
 export default function RootLayout({
