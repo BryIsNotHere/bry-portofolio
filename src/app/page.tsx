@@ -56,9 +56,6 @@ export default function Home() {
             onSelect={setSelectedProject}
           />
         )}
-        {activePage === "leaderboard" && (
-          <LeaderboardSection key="leaderboard" />
-        )}
         {activePage === "contact" && <ContactSection key="contact" />}
       </main>
 

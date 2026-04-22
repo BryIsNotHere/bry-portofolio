@@ -309,3 +309,12 @@ export const CONTACT = {
 
 // The Shining easter egg text (bottom of contact page)
 export const EASTER_EGG = "ALL WORK AND NO PLAY MAKES BRYAN A DULL DEV"
+
+export const GHOSTFACE_QUOTES = [
+  "Hello, Sidney.",
+  "Do you like scary movies?",
+  "What's your favorite scary movie?",
+  "I want to know who I'm looking at.",
+]
+
+export const GHOSTFACE_FAREWELL = "You can't hide forever!"
