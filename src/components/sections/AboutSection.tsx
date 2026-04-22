@@ -168,7 +168,6 @@ export default function AboutSection() {
             {[
               { label: "CLASS", value: PLAYER.class },
               { label: "ORIGIN", value: PLAYER.origin },
-              { label: "PROJECTS", value: `${PLAYER.projectsCleared} CLEARED` },
               { label: "STATUS", value: PLAYER.status, color: statusColor },
             ].map((row) => (
               <div
@@ -263,7 +262,7 @@ export default function AboutSection() {
                   position: "absolute",
                   bottom: 8,
                   right: 12,
-                  fontSize: 10,
+                  fontSize: 14,
                   color: "#555",
                 }}
               >

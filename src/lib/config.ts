@@ -10,7 +10,6 @@ export const PLAYER = {
   origin: "JAKARTA, ID",
   class: "DEVELOPER",
   level: "22",
-  projectsCleared: "5+",
   status: "OPEN TO OFFERS" as "AVAILABLE" | "BUSY" | "OPEN TO OFFERS",
   healthBars: [
     { label: "FRONTEND", value: 80 },
@@ -19,8 +18,8 @@ export const PLAYER = {
 }
 
 export const DIALOGS = [
-  "Hi there, I'm Bryan! a Web Developer from Jakarta, Indonesia. I was a Computer Science Bachelor graduating from Bina Nusantara University with a passion of continuous growth!",
-  "I'm currently focused on Web Development, I'm proficient in REACT, HTML, TAILWINDCSS, LARAVEL, and MySQL, alongside with traditional CSS using STYLED. I’m also expanding my skills currently in NEXTJS. Additionally, I have experience in using Git for web deployments and Figma for UI/UX design.",
+  "Hi there, I'm Bryan! a Frontend web developer from Jakarta, Indonesia. I was a Computer Science Bachelor graduating from Bina Nusantara University with a passion of continuous growth!",
+  "I'm currently focused on Web Development, proficient in NEXTJS, REACT, TAILWINDCSS, LARAVEL, and MySQL, alongside STYLEDCOMPONENTS, GIT, and FIGMA. Although my title leans frontend, I never let that limit me. I'm constantly letting curiosity pull me into backends, databases, and everything in between, always striving to be an all-around web developer.",
   "I care about clean architecture, audit trails, and systems that scale.",
   "When I'm not coding I'm probably obsessing over retro games or 2000s movies... or the whole pop cultures in general... or even reading classic fictions! (I'm such a nerd)",
   "I'm currently open towards new opportunities. Let's build something cool! ▶",
@@ -63,8 +62,8 @@ export const SPECIAL_MOVES: {
 export const LANGUAGES = [
   { label: "INDONESIAN", level: "NATIVE", value: 100 },
   { label: "ENGLISH", level: "PROFICIENT", value: 85 },
-  { label: "CHINESE", level: "ADVANCED", value: 65 },
-  { label: "HOKKIEN", level: "ADVANCED", value: 50 },
+  { label: "CHINESE", level: "ADVANCED", value: 50 },
+  { label: "HOKKIEN", level: "ADVANCED", value: 35 },
   { label: "HAKKA", level: "BEGINNER", value: 15 },
   { label: "KOREAN", level: "BEGINNER", value: 10 },
 ]
@@ -84,8 +83,8 @@ export interface Project {
 
 export const PROJECTS: Project[] = [
   {
-    name: "SPENDORA",
-    tag: "NEXTJS + TAILWINDCSS + FIREBASE + NETLIFY",
+    name: "Spendora",
+    tag: "NEXTJS + TYPESCRIPT + TAILWINDCSS + FIREBASE + NETLIFY",
     year: "2026",
     desc: [
       {
@@ -129,8 +128,49 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
+    name: "Bry's Atelier",
+    tag: "NEXTJS + TYPESCRIPT + TAILWIND + VERCEL",
+    year: "2026",
+    desc: [
+      {
+        text: "Bry's Atelier is a personal frontend training project built to sharpen my skills in interactive UI development and 2D canvas visualization. The core experience is a workspace design tool where users can freely place and arrange furniture assets on a 2D canvas to visualize and personalize their ideal workshop or workplace setup.",
+      },
+      {
+        text: "Beyond the visual builder, the project features a rental pricing system where users select a rental duration that dynamically calculates the total cost. What makes it engaging is a gamified discount mechanic on which every furniture item placed carries its own XP value, and as users build out their space, XP accumulates on a progress bar. The more thoughtfully designed the workspace, the greater the discount earned, capped at 30% off the rental price.",
+      },
+      {
+        text: "The project was built with NEXTJS, TAILWIND, and TYPESCRIPT, and deployed via VERCEL serving as a hands-on playground for practicing modern frontend architecture, canvas interaction, and stateful UI logic.",
+      },
+      {
+        text: "Live Demo →",
+        link: {
+          label: "bry-atelier-workshop.vercel.app",
+          href: "https://bry-atelier-workshop.vercel.app/",
+        },
+      },
+    ],
+    images: [
+      {
+        src: "/images/project/bry-atelier/homepage.png",
+        caption: "Main dashboard",
+      },
+      {
+        src: "/images/project/bry-atelier/bill.png",
+        caption: "Payment bill",
+      },
+      {
+        src: "/images/project/bry-atelier/loading.png",
+        caption: "Loading modal popup",
+      },
+      {
+        src: "/images/project/bry-atelier/receipt.png",
+        caption: "Billing receipt",
+      },
+    ],
+  },
+  {
     name: "Faux Vêtements",
-    tag: "NEXTJS + TAILWINDCSS",
+    tag: "REACTJS + TAILWINDCSS",
     year: "2025",
     desc: [
       {
@@ -145,8 +185,8 @@ export const PROJECTS: Project[] = [
       {
         text: "Github →",
         link: {
-          label: "Faux-Vetements",
-          href: "https://github.com/BryIsNotHere/Faux-Vetements.git",
+          label: "faux-vetements.netlify.app",
+          href: "https://faux-vetements.netlify.app/",
         },
       },
     ],
@@ -182,7 +222,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    name: "TEXT EDITOR",
+    name: "Text Editor",
     tag: "FLET + PYTHON + FLUTTER",
     year: "2025",
     desc: [
@@ -202,7 +242,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    name: "PACMAN",
+    name: "Pacman",
     tag: "HTML + CSS + JAVASCRIPT",
     year: "2023",
     desc: [
@@ -214,10 +254,10 @@ export const PROJECTS: Project[] = [
       },
       { text: "Controls: W, A, S, D for movement." },
       {
-        text: "Github →",
+        text: "Live Demo →",
         link: {
-          label: "Pacman",
-          href: "https://github.com/BryIsNotHere/Pacman.git",
+          label: "pacman-by-bry.netlify.app",
+          href: "https://pacman-by-bry.netlify.app/",
         },
       },
     ],
@@ -229,7 +269,7 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    name: "SWORDMASTERS",
+    name: "Swordmasters",
     tag: "HTML + CSS + JAVASCRIPT",
     year: "2022",
     desc: [
@@ -243,10 +283,10 @@ export const PROJECTS: Project[] = [
         text: "Controls — P1: A/D to move, W to jump, S to attack. P2: ←/→ to move, ↑ to jump, ↓ to attack.",
       },
       {
-        text: "Github →",
+        text: "Live Demo →",
         link: {
-          label: "FG-Project",
-          href: "https://github.com/BryIsNotHere/FG-Project.git",
+          label: "swordmasters-by-bry.netlify.app",
+          href: "https://swordmasters-by-bry.netlify.app",
         },
       },
     ],

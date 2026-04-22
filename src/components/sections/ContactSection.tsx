@@ -328,7 +328,7 @@ export default function ContactSection() {
                 letterSpacing: 1,
               }}
             >
-              CLICK FOR MORE
+              CLICK GHOSTFACE FOR MORE
             </div>
           </div>
         )}

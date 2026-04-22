@@ -173,7 +173,7 @@ export default function ProjectsSection({ projects, onSelect }: Props) {
                 transform: "translateX(-50%)",
                 fontFamily: "'Press Start 2P',monospace",
                 fontSize: 6,
-                color: "rgba(0,240,255,0.4)",
+                color: "#ff006e",
                 letterSpacing: 2,
                 pointerEvents: "none",
                 zIndex: 3,
@@ -532,6 +532,39 @@ function CharacterSlot({
         </div>
       )}
 
+      {/* Hover overlay */}
+      {isHighlighted && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 2,
+            pointerEvents: "none",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "'Press Start 2P',monospace",
+              fontSize: 5,
+              color: "#ff006e",
+              textAlign: "center",
+              letterSpacing: 1,
+              lineHeight: 2,
+              padding: "6px 8px",
+              border: "1px solid #ff006e",
+              background: "rgba(0,0,0,0.75)",
+            }}
+          >
+            CLICK FOR
+            <br />
+            DETAILS
+          </div>
+        </div>
+      )}
+
       {/* Scanlines */}
       <div
         style={{
@@ -585,8 +618,8 @@ function CharacterSlot({
             left: 4,
             fontFamily: "'Press Start 2P',monospace",
             fontSize: 8,
-            color: "#ffe600",
-            textShadow: "0 0 8px #ffe600",
+            color: "#ff006e",
+            textShadow: "0 0 8px #ff006e",
             animation: "blink 0.6s step-end infinite",
             pointerEvents: "none",
           }}
