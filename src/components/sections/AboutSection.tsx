@@ -9,8 +9,13 @@ import {
   TOOLS_STACK,
   LANGUAGES,
 } from "@/lib/config"
+import type { PageId } from "@/app/page"
 
-export default function AboutSection() {
+export default function AboutSection({
+  navigate,
+}: {
+  navigate: (page: PageId) => void
+}) {
   const [displayText, setDisplayText] = useState("")
   const [dialogIndex, setDialogIndex] = useState(0)
   const [typing, setTyping] = useState(false)
@@ -65,6 +70,26 @@ export default function AboutSection() {
       ? "#ffe600"
       : "#ff006e"
 
+  const sectionLabel = {
+    fontFamily: "'Press Start 2P',monospace" as const,
+    fontSize: "var(--fs-pixel-md)",
+    letterSpacing: 2,
+    marginBottom: 14,
+  }
+
+  const ctaBase = {
+    fontFamily: "'Press Start 2P',monospace" as const,
+    fontSize: "var(--fs-pixel-sm)",
+    padding: "12px 16px",
+    letterSpacing: 1,
+    borderRadius: 2,
+    transition: "all 0.15s",
+    cursor: "crosshair" as const,
+    display: "inline-flex" as const,
+    alignItems: "center" as const,
+    gap: 8,
+  }
+
   return (
     <section
       className="page-in"
@@ -83,9 +108,9 @@ export default function AboutSection() {
         className="neon-pink"
         style={{
           fontFamily: "'Press Start 2P',monospace",
-          fontSize: 10,
+          fontSize: "var(--fs-pixel-lg)",
           letterSpacing: 3,
-          marginBottom: 40,
+          marginBottom: 20,
         }}
       >
         <span style={{ color: "#555" }}>// </span>ABOUT ME
@@ -100,7 +125,7 @@ export default function AboutSection() {
           alignItems: "start",
         }}
       >
-        {/* Character card */}
+        {/* ── Character card ── */}
         <div
           style={{
             border: "1px solid #00f0ff",
@@ -177,7 +202,7 @@ export default function AboutSection() {
                   display: "flex",
                   justifyContent: "space-between",
                   fontFamily: "'Press Start 2P',monospace",
-                  fontSize: 6,
+                  fontSize: "var(--fs-pixel-md)",
                   color: "#888",
                   padding: "5px 0",
                   borderBottom: "1px solid rgba(255,255,255,0.04)",
@@ -192,14 +217,14 @@ export default function AboutSection() {
           </div>
         </div>
 
-        {/* Right side */}
+        {/* ── Right side ── */}
         <div>
-          {/* Pokemon dialog */}
+          {/* Pokémon dialog */}
           <div className="pokemon-box" onClick={advance}>
             <div
               style={{
                 fontFamily: "'Share Tech Mono',monospace",
-                fontSize: 14,
+                fontSize: "var(--fs-mono-md)",
                 color: "#111",
                 lineHeight: 1.8,
                 minHeight: 60,
@@ -227,7 +252,7 @@ export default function AboutSection() {
                   position: "absolute",
                   bottom: 8,
                   right: 12,
-                  fontSize: 14,
+                  fontSize: "var(--fs-mono-sm)",
                   color: "#555",
                 }}
               >
@@ -239,17 +264,17 @@ export default function AboutSection() {
           {/* Frontend */}
           <div
             className="neon-yellow"
-            style={{
-              fontFamily: "'Press Start 2P',monospace",
-              fontSize: "clamp(7px, 2vw, 8px)",
-              letterSpacing: 2,
-              marginTop: 32,
-              marginBottom: 14,
-            }}
+            style={{ ...sectionLabel, marginTop: 32 }}
           >
             FRONTEND
           </div>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 8,
+            }}
+          >
             {FRONTEND_STACK.map((t) => (
               <span key={t.label} className={`tech-badge ${t.color}`}>
                 {t.label}
@@ -260,13 +285,7 @@ export default function AboutSection() {
           {/* Backend */}
           <div
             className="neon-yellow"
-            style={{
-              fontFamily: "'Press Start 2P',monospace",
-              fontSize: "clamp(7px, 2vw, 8px)",
-              letterSpacing: 2,
-              marginTop: 24,
-              marginBottom: 14,
-            }}
+            style={{ ...sectionLabel, marginTop: 24 }}
           >
             BACKEND
           </div>
@@ -281,13 +300,7 @@ export default function AboutSection() {
           {/* Tools */}
           <div
             className="neon-yellow"
-            style={{
-              fontFamily: "'Press Start 2P',monospace",
-              fontSize: "clamp(7px, 2vw, 8px)",
-              letterSpacing: 2,
-              marginTop: 24,
-              marginBottom: 14,
-            }}
+            style={{ ...sectionLabel, marginTop: 24 }}
           >
             TOOLS
           </div>
@@ -302,13 +315,7 @@ export default function AboutSection() {
           {/* Languages */}
           <div
             className="neon-yellow"
-            style={{
-              fontFamily: "'Press Start 2P',monospace",
-              fontSize: "clamp(7px, 2vw, 8px)",
-              letterSpacing: 2,
-              marginTop: 24,
-              marginBottom: 14,
-            }}
+            style={{ ...sectionLabel, marginTop: 24 }}
           >
             LANGUAGES
           </div>
@@ -318,7 +325,7 @@ export default function AboutSection() {
                 key={lang.label}
                 style={{
                   fontFamily: "'Press Start 2P',monospace",
-                  fontSize: 7,
+                  fontSize: "var(--fs-pixel-xs)",
                   padding: "6px 10px",
                   border: "1px solid #555",
                   borderRadius: 2,
@@ -334,7 +341,7 @@ export default function AboutSection() {
             ))}
           </div>
 
-          {/* CTA buttons*/}
+          {/* CTA buttons */}
           <div
             style={{
               paddingTop: 24,
@@ -347,19 +354,10 @@ export default function AboutSection() {
               href="/cv/bryan-nicholas-cv.pdf"
               download="Bryan_Nicholas_CV.pdf"
               style={{
-                fontFamily: "'Press Start 2P',monospace",
-                fontSize: 7,
-                padding: "12px 16px",
+                ...ctaBase,
                 border: "1px solid #39ff14",
                 color: "#39ff14",
                 textDecoration: "none",
-                letterSpacing: 1,
-                borderRadius: 2,
-                transition: "all 0.15s",
-                cursor: "crosshair",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#39ff14"
@@ -378,19 +376,10 @@ export default function AboutSection() {
             <button
               onClick={() => navigate("projects")}
               style={{
-                fontFamily: "'Press Start 2P',monospace",
-                fontSize: 7,
-                padding: "12px 16px",
+                ...ctaBase,
                 border: "1px solid #00f0ff",
                 color: "#00f0ff",
                 background: "transparent",
-                letterSpacing: 1,
-                borderRadius: 2,
-                transition: "all 0.15s",
-                cursor: "crosshair",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 8,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#00f0ff"

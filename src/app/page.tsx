@@ -48,7 +48,9 @@ export default function Home() {
         {activePage === "landing" && (
           <LandingSection key="landing" navigate={navigate} />
         )}
-        {activePage === "about" && <AboutSection key="about" />}
+        {activePage === "about" && (
+          <AboutSection key="about" navigate={navigate} />
+        )}
         {activePage === "projects" && (
           <ProjectsSection
             key="projects"

@@ -13,6 +13,32 @@
   --neon-pink: #ff006e;
   --neon-yellow: #ffe600;
   --neon-green: #39ff14;
+
+  /* ── Font size scale — adjust these to resize everything ── */
+  --fs-pixel-xs: 6px; /* stat labels, tiny hints */
+  --fs-pixel-sm: 7px; /* nav links, badges, buttons */
+  --fs-pixel-md: 9px; /* section subheadings */
+  --fs-pixel-lg: 10px; /* section headers */
+  --fs-pixel-xl: 13px; /* featured project name */
+  --fs-pixel-2xl: 14px; /* landing title small */
+
+  --fs-mono-sm: 12px; /* captions, hints */
+  --fs-mono-md: 14px; /* pokemon dialog, descriptions */
+  --fs-mono-lg: 16px; /* larger body text */
+
+  /* Mobile scale — bump everything up */
+  @media (max-width: 768px) {
+    --fs-pixel-xs: 7px;
+    --fs-pixel-sm: 8px;
+    --fs-pixel-md: 10px;
+    --fs-pixel-lg: 11px;
+    --fs-pixel-xl: 14px;
+    --fs-pixel-2xl: 16px;
+
+    --fs-mono-sm: 13px;
+    --fs-mono-md: 15px;
+    --fs-mono-lg: 17px;
+  }
 }
 
 * {
@@ -386,6 +412,9 @@ body {
 
 /* ── Responsive ──────────────────────────────────── */
 @media (max-width: 768px) {
+  :root {
+    --fs-pixel-sm: 9px;
+  }
   .pokemon-box {
     padding: 16px 18px 28px;
   }
