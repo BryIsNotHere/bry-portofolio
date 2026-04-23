@@ -28,14 +28,17 @@ export default function ProjectsSection({ projects, onSelect }: Props) {
           grid-template-columns: 1fr 340px;
           gap: 24px;
           flex: 1;
+          min-width: 0;
         }
         .projects-grid-panel {
           display: flex;
           flex-direction: column;
+          min-width: 0;
         }
         @media (max-width: 768px) {
           .projects-layout {
             grid-template-columns: 1fr;
+            gap: 16px;
           }
           .projects-grid-panel {
             order: -1;
@@ -260,8 +263,9 @@ export default function ProjectsSection({ projects, onSelect }: Props) {
             <div
               style={{
                 position: "relative",
-                padding: "20px 28px 28px",
+                padding: "16px 20px 20px",
                 zIndex: 2,
+                minWidth: 0,
               }}
             >
               <div
@@ -270,18 +274,21 @@ export default function ProjectsSection({ projects, onSelect }: Props) {
                   alignItems: "flex-start",
                   justifyContent: "space-between",
                   marginBottom: 16,
+                  gap: 12,
+                  minWidth: 0,
                 }}
               >
-                <div>
+                <div style={{ minWidth: 0, flex: 1 }}>
                   <div
                     style={{
                       fontFamily: "'Press Start 2P',monospace",
-                      fontSize: 13,
+                      fontSize: "clamp(8px, 2.5vw, 13px)",
                       color: "#ffe600",
                       textShadow:
                         "0 0 20px #ffe600, 0 0 40px rgba(255,230,0,0.3)",
                       letterSpacing: 2,
                       marginBottom: 10,
+                      wordBreak: "break-word",
                     }}
                   >
                     {featured?.name}
@@ -289,9 +296,10 @@ export default function ProjectsSection({ projects, onSelect }: Props) {
                   <div
                     style={{
                       fontFamily: "'Share Tech Mono',monospace",
-                      fontSize: 13,
+                      fontSize: "clamp(10px, 2.5vw, 13px)",
                       color: "#888",
                       letterSpacing: 1,
+                      wordBreak: "break-word",
                     }}
                   >
                     {featured?.tag}
