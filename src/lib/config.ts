@@ -9,7 +9,6 @@ export const PLAYER = {
   title: "FRONTEND WEB DEVELOPER",
   origin: "JAKARTA, ID",
   class: "DEVELOPER",
-  level: "22",
   status: "OPEN TO OFFERS" as "AVAILABLE" | "BUSY" | "OPEN TO OFFERS",
   healthBars: [
     { label: "FRONTEND", value: 80 },
@@ -18,54 +17,52 @@ export const PLAYER = {
 }
 
 export const DIALOGS = [
-  "Hi there, I'm Bryan! a Frontend web developer from Jakarta, Indonesia. I was a Computer Science Bachelor graduating from Bina Nusantara University with a passion of continuous growth!",
-  "I'm currently focused on Web Development, proficient in NEXTJS, REACT, TAILWINDCSS, LARAVEL, and MySQL, alongside STYLEDCOMPONENTS, GIT, and FIGMA. Although my title leans frontend, I never let that limit me. I'm constantly letting curiosity pull me into backends, databases, and everything in between, always striving to be an all-around web developer.",
-  "I care about clean architecture, audit trails, and systems that scale.",
-  "When I'm not coding I'm probably obsessing over retro games or 2000s movies... or the whole pop cultures in general... or even reading classic fictions! (I'm such a nerd)",
-  "I'm currently open towards new opportunities. Let's build something cool! ▶",
+  "Hi! I'm Bryan, a Frontend Web Developer from Jakarta, Indonesia. I'm a Computer Science graduate from Bina Nusantara University.",
+  "I specialize in building responsive, interactive web interfaces using React, Next.js, TypeScript, and TailwindCSS.",
+  "Beyond the frontend, I'm also comfortable on the backend; I have hands-on experience with Laravel, PHP, MySQL, and Firebase, so I can work across the full stack when needed.",
+  "Currently open to new opportunities. Let's build something great! ▶",
 ]
 
-export const TECH_STACK: {
+export const FRONTEND_STACK: {
   label: string
   color: "blue" | "pink" | "yellow" | "green"
 }[] = [
-  { label: "NEXTJS", color: "green" },
   { label: "REACT", color: "blue" },
+  { label: "NEXT.JS", color: "green" },
   { label: "TYPESCRIPT", color: "blue" },
-  { label: "INERTIAJS", color: "pink" },
-  { label: "LARAVEL", color: "pink" },
   { label: "TAILWINDCSS", color: "yellow" },
+  { label: "INERTIA.JS", color: "pink" },
   { label: "HTML5", color: "pink" },
   { label: "CSS", color: "blue" },
+]
+
+export const BACKEND_STACK: {
+  label: string
+  color: "blue" | "pink" | "yellow" | "green"
+}[] = [
+  { label: "LARAVEL", color: "pink" },
   { label: "PHP", color: "blue" },
   { label: "MySQL", color: "green" },
   { label: "FIREBASE", color: "yellow" },
   { label: "REST API", color: "blue" },
-  { label: "GIT", color: "pink" },
-  { label: "POSTMAN", color: "yellow" },
-  { label: "NETLIFY", color: "blue" },
-  { label: "VERCEL", color: "blue" },
-  { label: "FIGMA", color: "pink" },
 ]
 
-export const SPECIAL_MOVES: {
+export const TOOLS_STACK: {
   label: string
   color: "blue" | "pink" | "yellow" | "green"
 }[] = [
-  { label: "UI/UX DESIGN", color: "blue" },
-  { label: "AUTH SYSTEMS", color: "yellow" },
-  { label: "API DESIGN", color: "yellow" },
-  { label: "DB ARCHITECTURE", color: "green" },
-  { label: "RESPONSIVE DESIGN", color: "green" },
+  { label: "GIT", color: "pink" },
+  { label: "FIGMA", color: "pink" },
+  { label: "VSCODE", color: "blue" },
 ]
 
 export const LANGUAGES = [
-  { label: "INDONESIAN", level: "NATIVE", value: 100 },
-  { label: "ENGLISH", level: "PROFICIENT", value: 85 },
-  { label: "CHINESE", level: "ADVANCED", value: 50 },
-  { label: "HOKKIEN", level: "ADVANCED", value: 35 },
-  { label: "HAKKA", level: "BEGINNER", value: 15 },
-  { label: "KOREAN", level: "BEGINNER", value: 10 },
+  { label: "INDONESIAN", level: "NATIVE" },
+  { label: "ENGLISH", level: "PROFICIENT" },
+  { label: "CHINESE", level: "ADVANCED" },
+  { label: "HOKKIEN", level: "ADVANCED" },
+  { label: "HAKKA", level: "BEGINNER" },
+  { label: "KOREAN", level: "BEGINNER" },
 ]
 
 export interface ProjectParagraph {

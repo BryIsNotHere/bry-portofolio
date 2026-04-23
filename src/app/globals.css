@@ -385,6 +385,20 @@ body {
 }
 
 /* ── Responsive ──────────────────────────────────── */
+@media (max-width: 768px) {
+  .pokemon-box {
+    padding: 16px 18px 28px;
+  }
+  .pokemon-box .font-mono,
+  .pokemon-box p {
+    font-size: 13px !important;
+  }
+  .tech-badge {
+    font-size: 6px !important;
+    padding: 5px 8px !important;
+  }
+}
+
 @media (max-width: 700px) {
   .about-grid {
     grid-template-columns: 1fr !important;

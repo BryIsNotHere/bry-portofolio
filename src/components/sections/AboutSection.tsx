@@ -4,8 +4,9 @@ import { useState, useEffect, useRef } from "react"
 import {
   PLAYER,
   DIALOGS,
-  TECH_STACK,
-  SPECIAL_MOVES,
+  FRONTEND_STACK,
+  BACKEND_STACK,
+  TOOLS_STACK,
   LANGUAGES,
 } from "@/lib/config"
 
@@ -161,7 +162,7 @@ export default function AboutSection() {
           {/* Stat rows */}
           <div
             style={{
-              padding: "12px 16px",
+              padding: "18px 16px",
               borderTop: "1px solid rgba(0,240,255,0.2)",
             }}
           >
@@ -188,42 +189,6 @@ export default function AboutSection() {
                 </span>
               </div>
             ))}
-            {/* EXP bar */}
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                fontFamily: "'Press Start 2P',monospace",
-                fontSize: 6,
-                color: "#888",
-                paddingTop: 5,
-              }}
-            >
-              <span>EXP</span>
-              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
-                <div
-                  style={{
-                    width: 60,
-                    height: 6,
-                    background: "#111",
-                    border: "1px solid #333",
-                    borderRadius: 1,
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      height: "100%",
-                      width: "75%",
-                      background: "#00f0ff",
-                      boxShadow: "0 0 4px #00f0ff",
-                    }}
-                  />
-                </div>
-                <span style={{ color: "#ffe600" }}>LV.{PLAYER.level}</span>
-              </div>
-            </div>
           </div>
         </div>
 
@@ -271,42 +236,63 @@ export default function AboutSection() {
             )}
           </div>
 
-          {/* Tech stack */}
+          {/* Frontend */}
           <div
             className="neon-yellow"
             style={{
               fontFamily: "'Press Start 2P',monospace",
-              fontSize: 8,
+              fontSize: "clamp(7px, 2vw, 8px)",
               letterSpacing: 2,
               marginTop: 32,
               marginBottom: 14,
             }}
           >
-            TECH STACK
+            FRONTEND
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {TECH_STACK.map((t) => (
+            {FRONTEND_STACK.map((t) => (
               <span key={t.label} className={`tech-badge ${t.color}`}>
                 {t.label}
               </span>
             ))}
           </div>
 
-          {/* Special moves */}
+          {/* Backend */}
           <div
             className="neon-yellow"
             style={{
               fontFamily: "'Press Start 2P',monospace",
-              fontSize: 8,
+              fontSize: "clamp(7px, 2vw, 8px)",
               letterSpacing: 2,
-              marginTop: 28,
+              marginTop: 24,
               marginBottom: 14,
             }}
           >
-            SPECIAL MOVES
+            BACKEND
           </div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-            {SPECIAL_MOVES.map((t) => (
+            {BACKEND_STACK.map((t) => (
+              <span key={t.label} className={`tech-badge ${t.color}`}>
+                {t.label}
+              </span>
+            ))}
+          </div>
+
+          {/* Tools */}
+          <div
+            className="neon-yellow"
+            style={{
+              fontFamily: "'Press Start 2P',monospace",
+              fontSize: "clamp(7px, 2vw, 8px)",
+              letterSpacing: 2,
+              marginTop: 24,
+              marginBottom: 14,
+            }}
+          >
+            TOOLS
+          </div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            {TOOLS_STACK.map((t) => (
               <span key={t.label} className={`tech-badge ${t.color}`}>
                 {t.label}
               </span>
@@ -318,77 +304,67 @@ export default function AboutSection() {
             className="neon-yellow"
             style={{
               fontFamily: "'Press Start 2P',monospace",
-              fontSize: 8,
+              fontSize: "clamp(7px, 2vw, 8px)",
               letterSpacing: 2,
-              marginTop: 28,
+              marginTop: 24,
               marginBottom: 14,
             }}
           >
             LANGUAGES
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {LANGUAGES.map((lang) => (
-              <div key={lang.label}>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    fontFamily: "'Press Start 2P',monospace",
-                    fontSize: 6,
-                    color: "#888",
-                    marginBottom: 4,
-                  }}
-                >
-                  <span style={{ color: "#fff" }}>{lang.label}</span>
-                  <span style={{ color: "#ffe600" }}>{lang.level}</span>
-                </div>
-                <div
-                  style={{
-                    width: "100%",
-                    height: 8,
-                    background: "#111",
-                    border: "1px solid #333",
-                    borderRadius: 1,
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      height: "100%",
-                      width: `${lang.value}%`,
-                      background: "linear-gradient(90deg,#ff006e,#ff006e)",
-                      boxShadow: "0 0 6px #ff006e",
-                    }}
-                  />
-                </div>
+              <div
+                key={lang.label}
+                style={{
+                  fontFamily: "'Press Start 2P',monospace",
+                  fontSize: 7,
+                  padding: "6px 10px",
+                  border: "1px solid #555",
+                  borderRadius: 2,
+                  display: "flex",
+                  gap: 8,
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ color: "#fff" }}>{lang.label}</span>
+                <span style={{ color: "#444" }}>—</span>
+                <span style={{ color: "#ffe600" }}>{lang.level}</span>
               </div>
             ))}
           </div>
 
-          {/* CV Download */}
-          <div style={{ marginTop: 32 }}>
+          {/* CTA buttons*/}
+          <div
+            style={{
+              paddingTop: 24,
+              display: "flex",
+              gap: 12,
+              flexWrap: "wrap",
+            }}
+          >
             <a
               href="/cv/bryan-nicholas-cv.pdf"
               download="Bryan_Nicholas_CV.pdf"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
                 fontFamily: "'Press Start 2P',monospace",
-                fontSize: 8,
-                padding: "12px 20px",
+                fontSize: 7,
+                padding: "12px 16px",
                 border: "1px solid #39ff14",
                 color: "#39ff14",
                 textDecoration: "none",
-                letterSpacing: 2,
+                letterSpacing: 1,
                 borderRadius: 2,
                 transition: "all 0.15s",
                 cursor: "crosshair",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#39ff14"
                 e.currentTarget.style.color = "#080810"
-                e.currentTarget.style.boxShadow = "0 0 20px #39ff14"
+                e.currentTarget.style.boxShadow = "0 0 16px #39ff14"
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.background = "transparent"
@@ -398,6 +374,37 @@ export default function AboutSection() {
             >
               DOWNLOAD CV
             </a>
+
+            <button
+              onClick={() => navigate("projects")}
+              style={{
+                fontFamily: "'Press Start 2P',monospace",
+                fontSize: 7,
+                padding: "12px 16px",
+                border: "1px solid #00f0ff",
+                color: "#00f0ff",
+                background: "transparent",
+                letterSpacing: 1,
+                borderRadius: 2,
+                transition: "all 0.15s",
+                cursor: "crosshair",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 8,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.background = "#00f0ff"
+                e.currentTarget.style.color = "#080810"
+                e.currentTarget.style.boxShadow = "0 0 16px #00f0ff"
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.background = "transparent"
+                e.currentTarget.style.color = "#00f0ff"
+                e.currentTarget.style.boxShadow = "none"
+              }}
+            >
+              MY PROJECTS
+            </button>
           </div>
         </div>
       </div>
