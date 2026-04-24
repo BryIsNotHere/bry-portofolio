@@ -28,6 +28,23 @@ export default function ContactSection() {
   const [quoteIndex, setQuoteIndex] = useState(0)
   const [showQuote, setShowQuote] = useState(false)
   const [quoteText, setQuoteText] = useState("")
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth <= 768)
+    check()
+    window.addEventListener("resize", check)
+    return () => window.removeEventListener("resize", check)
+  }, [])
+
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && ghostFrozen && !isMobile) releaseGhost()
+    }
+    window.addEventListener("keydown", onKey)
+    return () => window.removeEventListener("keydown", onKey)
+  }, [ghostFrozen, isMobile])
+
   const typeRef = useRef<ReturnType<typeof setInterval> | null>(null)
   const peekTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -210,7 +227,7 @@ export default function ContactSection() {
             bottom: -160,
             right: 40,
             width: 90,
-            height: 120,
+            height: 130,
             zIndex: 20,
             cursor: ghostVisible ? "crosshair" : "default",
             transform: ghostFrozen
@@ -234,6 +251,19 @@ export default function ContactSection() {
           />
         </div>
 
+        {/* Tap anywhere to dismiss — mobile only */}
+        {showQuote && ghostFrozen && isMobile && (
+          <div
+            onClick={releaseGhost}
+            style={{
+              position: "fixed",
+              inset: 0,
+              zIndex: 19,
+              cursor: "crosshair",
+            }}
+          />
+        )}
+
         {/* Ghostface dialogue bubble */}
         {showQuote && ghostFrozen && (
           <div
@@ -256,17 +286,10 @@ export default function ContactSection() {
                 letterSpacing: 1,
               }}
             >
-              PRESS{" "}
-              <span
-                style={{ color: "#ff006e" }}
-                onClick={(e) => {
-                  e.stopPropagation()
-                  releaseGhost()
-                }}
-              >
-                ESC
-              </span>{" "}
-              TO DISMISS
+              <span className="desktop-only">
+                PRESS <span style={{ color: "#ff006e" }}>ESC</span> TO DISMISS
+              </span>
+              <span className="mobile-only">TAP SCREEN TO DISMISS</span>
             </div>
             {/* Speech bubble */}
             <div
