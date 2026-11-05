@@ -9,7 +9,10 @@ export const PLAYER = {
   title: "FRONTEND WEB DEVELOPER",
   origin: "JAKARTA, ID",
   class: "DEVELOPER",
-  status: "OPEN TO OFFERS" as "AVAILABLE" | "BUSY" | "OPEN TO OFFERS",
+  status: "OPEN TO OPPORTUNITIES" as
+    | "AVAILABLE"
+    | "BUSY"
+    | "OPEN TO OPPORTUNITIES",
   healthBars: [
     { label: "FRONTEND", value: 80 },
     { label: "BACKEND", value: 20 },
@@ -43,7 +46,6 @@ export const BACKEND_STACK: {
   { label: "PHP", color: "blue" },
   { label: "MySQL", color: "green" },
   { label: "FIREBASE", color: "yellow" },
-  { label: "REST API", color: "blue" },
 ]
 
 export const TOOLS_STACK: {
