@@ -31,8 +31,7 @@ export const FRONTEND_STACK: {
   { label: "NEXT.JS", color: "green" },
   { label: "TYPESCRIPT", color: "blue" },
   { label: "TAILWINDCSS", color: "yellow" },
-  { label: "INERTIA.JS", color: "pink" },
-  { label: "HTML5", color: "pink" },
+  { label: "HTML", color: "pink" },
   { label: "CSS", color: "blue" },
 ]
 
